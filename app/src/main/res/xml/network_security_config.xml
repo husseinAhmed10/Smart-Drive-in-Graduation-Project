@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">http:// 172.28.9.140/driveweb/add_user.php</domain>
+        <domain includeSubdomains="true">http:// 172.28.9.140/driveweb/login.php</domain>
+        <domain includeSubdomains="true">http://172.28.9.140/select_slot.php.php?</domain>
+
+    </domain-config>
+</network-security-config>
