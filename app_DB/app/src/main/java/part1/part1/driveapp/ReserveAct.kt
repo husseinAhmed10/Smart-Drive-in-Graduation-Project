@@ -25,28 +25,11 @@ class ReserveAct : AppCompatActivity() {
 
         slot1_btn_click.setOnClickListener{
 
-        //    if(1) {
-           //     slot1_btn_click.setBackgroundColor(Color.parseColor("#CC0000"))
-           //     Toast.makeText(this, "Slot 1 is reserved", Toast.LENGTH_LONG).show()
-           // }
-        //    else
-         //       Toast.makeText(this, "Failed::Slot 1 is already reserved", Toast.LENGTH_LONG).show()
-
-
               val i= Intent(this,Slot1Act::class.java)
               startActivity(i)
         }
 
         slot2_btn_click.setOnClickListener{
-
-            //    if(1) {
-          //  slot2_btn_click.setBackgroundColor(Color.parseColor("#CC0000"))
-        //    Toast.makeText(this, "Slot 2 is reserved", Toast.LENGTH_LONG).show()
-
-            // }
-            //    else
-        //    Toast.makeText(this, "Failed::Slot 2 is already reserved", Toast.LENGTH_LONG).show()
-
 
             val i= Intent(this,Slot2Act::class.java)
             startActivity(i)
@@ -55,34 +38,25 @@ class ReserveAct : AppCompatActivity() {
       //  Thread.sleep(200000L)
       //  slot3_btn_click.setBackgroundColor(Color.parseColor("#CC0000"))
 
+        //    if(1) {
+        // slot3_btn_click.setBackgroundColor(Color.parseColor("#CC0000"))
+        // Toast.makeText(this, "Slot 3 is reserved", Toast.LENGTH_LONG).show()
+        // }
+        //    else
+        //  Toast.makeText(this, "Failed::Slot 3 is already reserved", Toast.LENGTH_LONG).show()
+
+
         slot3_btn_click.setOnClickListener{
-
-            //    if(1) {
-           // slot3_btn_click.setBackgroundColor(Color.parseColor("#CC0000"))
-           // Toast.makeText(this, "Slot 3 is reserved", Toast.LENGTH_LONG).show()
-            // }
-            //    else
-          //  Toast.makeText(this, "Failed::Slot 3 is already reserved", Toast.LENGTH_LONG).show()
-
 
             val i= Intent(this,Slot3Act::class.java)
             startActivity(i)
         }
         slot4_btn_click.setOnClickListener{
 
-            //    if(1) {
-           // slot4_btn_click.setBackgroundColor(Color.parseColor("#CC0000"))
-           // Toast.makeText(this, "Slot 4 is reserved", Toast.LENGTH_LONG).show()
-            // }
-            //    else
-           // Toast.makeText(this, "Failed::Slot 4 is already reserved", Toast.LENGTH_LONG).show()
-
             val i= Intent(this,Slot4Act::class.java)
             startActivity(i)
         }
 
     }
-
-
 
 }

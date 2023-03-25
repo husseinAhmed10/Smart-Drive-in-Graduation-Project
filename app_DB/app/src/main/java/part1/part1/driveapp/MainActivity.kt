@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         txt_btn_click_login.setOnClickListener{
 
                 val url =
-                    "http://10.10.10.250/login.php?name=" + name + "&password=" + pass
+                    "http://192.168.1.8/login.php?name=" + name + "&password=" + pass
 
                 val rq: RequestQueue = Volley.newRequestQueue(this)
 
