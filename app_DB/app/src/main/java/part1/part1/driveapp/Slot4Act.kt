@@ -45,7 +45,7 @@ class Slot4Act : AppCompatActivity() {
                         else {
                             Toast.makeText(this, "Slot reserved Welcome", Toast.LENGTH_LONG).show()
                             time_12_4.setBackgroundColor(Color.parseColor("#CC0000"))
-                            GlobalVar().Status = 1
+                            GlobalVar.Status = 1
                         }
 
                     }, { error ->
@@ -133,7 +133,7 @@ class Slot4Act : AppCompatActivity() {
                         else {
                             Toast.makeText(this, "Slot reserved Welcome", Toast.LENGTH_LONG).show()
                             time_8_12.setBackgroundColor(Color.parseColor("#CC0000"))
-                            GlobalVar().Status = 1
+                            GlobalVar.Status = 1
                         }
 
                     }, { error ->
@@ -198,7 +198,7 @@ class Slot4Act : AppCompatActivity() {
                         else {
                             Toast.makeText(this, "Slot reserved Welcome", Toast.LENGTH_LONG).show()
                             time_8_12.setBackgroundColor(Color.parseColor("#CC0000"))
-                            GlobalVar().Status = 1
+                            GlobalVar.Status = 1
                         }
 
                     }, { error ->
@@ -223,7 +223,7 @@ class Slot4Act : AppCompatActivity() {
 
         done.setOnClickListener{
 
-            if (GlobalVar().Status == 1){
+            if (GlobalVar.Status == 1){
                 val i= Intent(this,CheckOutAct::class.java)
                 startActivity(i)
             }

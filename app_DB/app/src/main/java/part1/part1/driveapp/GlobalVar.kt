@@ -4,9 +4,9 @@ import android.app.Application
 
 class GlobalVar : Application() {
 
-    var Status = 0
-    fun setGlobalValue(newValue: Int) {
-        Status = newValue
+    companion object {
+        var Status: Int? = 0        //if he reserved slot, it is true (i.e. = 1)
     }
+ //   var name: String? = null
 
 }

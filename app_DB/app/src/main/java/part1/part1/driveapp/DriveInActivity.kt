@@ -13,18 +13,24 @@ class DriveInActivity : AppCompatActivity() {
 
         val txt_btn_click = findViewById<TextView>(R.id.check_slot_btn_txt)
         txt_btn_click.setOnClickListener {
-            val i = Intent(this, ReserveAct::class.java)
-            startActivity(i)
+            if (GlobalVar.Status == 0) {
+                val i = Intent(this, ReserveAct::class.java)
+                startActivity(i)
+            }else {
+                Toast.makeText(this, "You already reserved a spot", Toast.LENGTH_LONG).show()
+                GlobalVar.Status = 1
+            }
+
         }
         val check_btn_click = findViewById<TextView>(R.id.status_txt)
         check_btn_click.setOnClickListener {
 
-            if (GlobalVar().Status == 1) {
+            if (GlobalVar.Status == 1) {
                 val i = Intent(this, StatusAct::class.java)
                 startActivity(i)
             } else {
                 Toast.makeText(this, "You didn't reserve a spot", Toast.LENGTH_LONG).show()
-                GlobalVar().setGlobalValue(1)
+                GlobalVar.Status = 1
             }
 
         }
