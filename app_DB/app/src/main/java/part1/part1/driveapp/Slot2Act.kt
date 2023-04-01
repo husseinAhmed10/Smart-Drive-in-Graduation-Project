@@ -226,15 +226,14 @@ class Slot2Act : AppCompatActivity() {
 
 
         val done = findViewById<TextView>(R.id.Done_2_btn_txt)
-
-        if (GlobalVar.Status == 1){
-            val i= Intent(this,CheckOutAct::class.java)
+    done.setOnClickListener {
+        if (GlobalVar.Status == 1) {
+            GlobalVar.enable_status_button = 1
+            val i = Intent(this, CheckOutAct::class.java)
             startActivity(i)
-        }
-        else
+        } else
             Toast.makeText(this, "No Chosen Slot", Toast.LENGTH_LONG).show()
-
-
+    }
 
     }
 }

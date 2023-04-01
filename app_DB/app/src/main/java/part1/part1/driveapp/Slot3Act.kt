@@ -223,14 +223,13 @@ class Slot3Act : AppCompatActivity() {
 
         val done = findViewById<TextView>(R.id.Done_3_btn_txt)
 
-        if (GlobalVar.Status == 1){
-            val i= Intent(this,CheckOutAct::class.java)
-            startActivity(i)
+        done.setOnClickListener {
+            if (GlobalVar.Status == 1) {
+                GlobalVar.enable_status_button = 1
+                val j = Intent(this, CheckOutAct::class.java)
+                startActivity(j)
+            } else
+                Toast.makeText(this, "No Chosen Slot", Toast.LENGTH_LONG).show()
         }
-        else
-            Toast.makeText(this, "No Chosen Slot", Toast.LENGTH_LONG).show()
-
-
-
     }
 }

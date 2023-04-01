@@ -18,6 +18,8 @@ class HomeAct : AppCompatActivity() {
 
         cinemabtnclick.setOnClickListener {
 
+           // val i= Intent(this, CheckOutAct::class.java)
+           // startActivity(i)
             Toast.makeText(this,"This option is closed at the moment", Toast.LENGTH_LONG).show()
         }
 

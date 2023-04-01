@@ -18,19 +18,19 @@ class DriveInActivity : AppCompatActivity() {
                 startActivity(i)
             }else {
                 Toast.makeText(this, "You already reserved a spot", Toast.LENGTH_LONG).show()
-                GlobalVar.Status = 1
+               // GlobalVar.Status = 1
             }
 
         }
         val check_btn_click = findViewById<TextView>(R.id.status_txt)
         check_btn_click.setOnClickListener {
 
-            if (GlobalVar.Status == 1) {
+            if (GlobalVar.enable_status_button == 1) {
                 val i = Intent(this, StatusAct::class.java)
                 startActivity(i)
             } else {
                 Toast.makeText(this, "You didn't reserve a spot", Toast.LENGTH_LONG).show()
-                GlobalVar.Status = 1
+               // GlobalVar.Status = 1
             }
 
         }

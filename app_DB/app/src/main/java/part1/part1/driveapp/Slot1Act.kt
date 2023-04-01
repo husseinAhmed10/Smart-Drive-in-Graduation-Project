@@ -231,6 +231,7 @@ class Slot1Act : AppCompatActivity() {
         done.setOnClickListener{
 
             if (GlobalVar.Status == 1){
+                GlobalVar.enable_status_button = 1
                 val i= Intent(this,CheckOutAct::class.java)
                 startActivity(i)
             }

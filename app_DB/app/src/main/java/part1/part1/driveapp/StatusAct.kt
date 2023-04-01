@@ -14,6 +14,11 @@ class StatusAct : AppCompatActivity() {
         val client_name = findViewById<TextView>(R.id.Text_name)
         client_name.text = userLoginInfo.name
 
+        val client_points = findViewById<TextView>(R.id.Text_points)
+        client_points.text = GlobalVar.points.toString()
+
+
+
 
     }
 }
