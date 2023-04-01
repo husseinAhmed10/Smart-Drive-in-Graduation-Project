@@ -25,7 +25,7 @@ class Slot4Act : AppCompatActivity() {
         time_12_4.setOnClickListener {
 
 
-            val url2 = "http://192.168.1.8/slot_select.php?slotnum=41"
+            val url2 = GlobalVar.url_ip + "/slot_select.php?slotnum=41"
 
             val rq2: RequestQueue = Volley.newRequestQueue(this)
 
@@ -34,7 +34,7 @@ class Slot4Act : AppCompatActivity() {
                     Toast.makeText(this,"slot failed", Toast.LENGTH_LONG).show()
                 else {
 
-                    val url3 = "http://192.168.1.8/update_availablity.php?slotnum=41"
+                    val url3 = GlobalVar.url_ip + "/update_availablity.php?slotnum=41"
                     //   "http://10.10.10.250/slot_select.php?slotnum=1&available=1'"
 
                     val rq3: RequestQueue = Volley.newRequestQueue(this)
@@ -57,7 +57,7 @@ class Slot4Act : AppCompatActivity() {
 
                     time_4_8.setBackgroundColor(Color.parseColor("#CC0000"))
 
-                    val url = "http://192.168.1.8/spot_update.php?Spot=41&name="+ userLoginInfo.name
+                    val url = GlobalVar.url_ip + "/spot_update.php?Spot=41&name="+ userLoginInfo.name
                     //   "http://10.10.10.250/slot_select.php?slotnum=1&available=1'"
 
                     val rq: RequestQueue = Volley.newRequestQueue(this)
@@ -90,7 +90,7 @@ class Slot4Act : AppCompatActivity() {
         time_4_8.setOnClickListener {
 
 
-            val url2 = "http://192.168.1.8/slot_select.php?slotnum=42"
+            val url2 = GlobalVar.url_ip + "/slot_select.php?slotnum=42"
 
             val rq2: RequestQueue = Volley.newRequestQueue(this)
 
@@ -99,7 +99,7 @@ class Slot4Act : AppCompatActivity() {
                     Toast.makeText(this,"slot failed", Toast.LENGTH_LONG).show()
                 else {
 
-                    val url3 = "http://192.168.1.8/update_availablity.php?slotnum=42"
+                    val url3 = GlobalVar.url_ip + "/update_availablity.php?slotnum=42"
                     //   "http://10.10.10.250/slot_select.php?slotnum=1&available=1'"
 
                     val rq3: RequestQueue = Volley.newRequestQueue(this)
@@ -122,7 +122,7 @@ class Slot4Act : AppCompatActivity() {
 
                     time_4_8.setBackgroundColor(Color.parseColor("#CC0000"))
 
-                    val url = "http://192.168.1.8/spot_update.php?Spot=42&name="+ userLoginInfo.name
+                    val url = GlobalVar.url_ip + "/spot_update.php?Spot=42&name="+ userLoginInfo.name
                     //   "http://10.10.10.250/slot_select.php?slotnum=1&available=1'"
 
                     val rq: RequestQueue = Volley.newRequestQueue(this)
@@ -157,7 +157,7 @@ class Slot4Act : AppCompatActivity() {
         time_8_12.setOnClickListener {
 
 
-            val url2 = "http://192.168.1.8/slot_select.php?slotnum=43"
+            val url2 = GlobalVar.url_ip + "/slot_select.php?slotnum=43"
 
             val rq2: RequestQueue = Volley.newRequestQueue(this)
 
@@ -166,7 +166,7 @@ class Slot4Act : AppCompatActivity() {
                     Toast.makeText(this,"slot failed", Toast.LENGTH_LONG).show()
                 else {
 
-                    val url3 = "http://192.168.1.8/update_availablity.php?slotnum=43"
+                    val url3 = GlobalVar.url_ip + "/update_availablity.php?slotnum=43"
                     //   "http://10.10.10.250/slot_select.php?slotnum=1&available=1'"
 
                     val rq3: RequestQueue = Volley.newRequestQueue(this)
@@ -187,7 +187,7 @@ class Slot4Act : AppCompatActivity() {
                     rq3.add(sr3)
 
 
-                    val url = "http://192.168.1.8/spot_update.php?Spot=43&name="+ userLoginInfo.name
+                    val url = GlobalVar.url_ip + "/spot_update.php?Spot=43&name="+ userLoginInfo.name
                     //   "http://10.10.10.250/slot_select.php?slotnum=1&available=1'"
 
                     val rq: RequestQueue = Volley.newRequestQueue(this)

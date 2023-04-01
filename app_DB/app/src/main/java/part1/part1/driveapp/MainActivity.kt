@@ -30,8 +30,7 @@ class MainActivity : AppCompatActivity() {
         val txt_btn_click_login = findViewById<TextView>(R.id.login_btn_txt)
         txt_btn_click_login.setOnClickListener{
 
-                val url =
-                    "http://192.168.1.8/login.php?name=" + name + "&password=" + pass
+                val url = GlobalVar.url_ip + "/login.php?name=" + name + "&password=" + pass
 
                 val rq: RequestQueue = Volley.newRequestQueue(this)
 
@@ -45,7 +44,8 @@ class MainActivity : AppCompatActivity() {
                         //   Toast.makeText(this, "User Created Welcome", Toast.LENGTH_LONG).show()
                     }
 
-                }, { error ->
+                }, {
+                        error ->
                     Log.e("Error", error.message.toString())
                     Toast.makeText(this,error.message,Toast.LENGTH_LONG).show()
                 })

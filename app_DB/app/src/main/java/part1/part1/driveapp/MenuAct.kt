@@ -18,7 +18,7 @@ class MenuAct : AppCompatActivity() {
         val lv=findViewById<ListView>(R.id.home_cat)
 
 
-        val url="http://10.10.10.250/get_cat.php"
+        val url=GlobalVar.url_ip + "/get_cat.php"
         var list=ArrayList<String>()
 
         var rq: RequestQueue = Volley.newRequestQueue(this)

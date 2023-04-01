@@ -19,7 +19,7 @@ class OrderAct : AppCompatActivity() {
         val lv=findViewById<ListView>(R.id.home_cat)
 
 
-        val url="http://10.10.10.250/add_emp.php"
+        val url= GlobalVar.url_ip + "/add_emp.php"
         var list=ArrayList<String>()
 
         var rq: RequestQueue = Volley.newRequestQueue(this)

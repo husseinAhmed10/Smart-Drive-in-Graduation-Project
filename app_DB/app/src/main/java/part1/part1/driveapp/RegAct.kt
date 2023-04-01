@@ -33,7 +33,7 @@ class RegAct : AppCompatActivity() {
             if(confPass.equals(pass)) {
 
                 val url =
-                    "http://192.168.1.8/add_user.php?name=" + name + "&email=" + email + "&phone=" + mobPhone + "&password=" + pass
+                    GlobalVar.url_ip + "/add_user.php?name=" + name + "&email=" + email + "&phone=" + mobPhone + "&password=" + pass
 
                 val rq:RequestQueue=Volley.newRequestQueue(this)
 
