@@ -90,13 +90,13 @@ class MainActivity : AppCompatActivity() {
             var list=ArrayList<String>()
 
             var rq_point: RequestQueue = Volley.newRequestQueue(this)
-            var jar= JsonArrayRequest(Request.Method.GET,url_points,null, { response ->
-                list.add(response.getJSONObject(0).getString("points"))
-
-                var adp = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
-                GlobalVar.points  = adp
-
-            }
+//            var jar= JsonArrayRequest(Request.Method.GET,url_points,null, { response ->
+//                list.add(response.getJSONObject(0).getString("points"))
+//
+//                var adp = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
+//                GlobalVar.points  = adp
+//
+//            }
             /////
 
 

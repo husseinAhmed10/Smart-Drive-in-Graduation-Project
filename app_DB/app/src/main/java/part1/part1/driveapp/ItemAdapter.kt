@@ -1,6 +1,7 @@
 package part1.part1.driveapp
 
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 //import kotlinx.android.synthetic.main.item_row.view.*
 
 
+@Suppress("DEPRECATION")
 class ItemAdapter(var context:Context, var list:ArrayList<Item>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -25,19 +27,26 @@ class ItemAdapter(var context:Context, var list:ArrayList<Item>):RecyclerView.Ad
  }
 
  override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-  (holder as ItemHolder).bind(list[position].name, list[position].price)
+  (holder as ItemHolder).bind(list[position].name, list[position].price ,list[position].id)
  }
 
  class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-  fun bind(n: String, p: Int) {
+  fun bind(n: String, p: Int, item_id:Int) {
 //              //val rec: RecyclerView=
 
    val namen=itemView.findViewById<TextView>(R.id.item_name)
    namen.text=n
    val pricep =itemView.findViewById<TextView>(R.id.item_price)
    pricep.text=p.toString()
+
    val butadd=itemView.findViewById<ImageView>(R.id.item_add_photo)
-   butadd
+   butadd.setOnClickListener {
+     userLoginInfo.itemId=item_id
+     var obj=QtyFragment() 
+     var manager=(itemView.context as Activity).fragmentManager
+     obj.show(manager, "Qty")
+   }
+
 
   }
 

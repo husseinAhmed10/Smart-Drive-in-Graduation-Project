@@ -18,11 +18,13 @@ class CheckOutAct : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_out)
 
+
+
         //
         var currentPoints: Int?= GlobalVar.points  //my points
-        var totalPoints: Int?=0               //points got from buying
+        var totalPoints: Int?=0          //points got from buying
         //
-        var orderAmount: Int?= GlobalVar.order_points // this is the order money
+        var orderAmount: Int?= GlobalVar.amount // this is the order money
         var pointsToAdd = (orderAmount.toString().toInt() * 0.1).toInt()
         totalPoints = currentPoints.toString().toInt() + pointsToAdd.toString().toInt()
 
@@ -30,13 +32,17 @@ class CheckOutAct : AppCompatActivity() {
         orderTextView.text = "Your Order: $orderAmount"
 
         var pointsTextView = findViewById<TextView>(R.id.textView2_points)
-        pointsTextView.text = "Your Point L.E: $currentPoints"
+        pointsTextView.text = "Your Points L.E: $currentPoints"
 
         var button_payment = findViewById<TextView>(R.id.button3)//button3 for payment by credit
-      //  button_payment.isEnabled = totalPoints < orderAmount
+        if (currentPoints != null) {
+            button_payment.isEnabled = currentPoints < orderAmount!!
+        }
 
         var buttonPoints = findViewById<TextView>(R.id.button5)
-      //  buttonPoints.isEnabled = totalPoints >= orderAmount
+        if (currentPoints != null) {
+            buttonPoints.isEnabled = currentPoints >= orderAmount!!
+        }
 
 
         button_payment.setOnClickListener {
@@ -53,7 +59,8 @@ class CheckOutAct : AppCompatActivity() {
             Toast.makeText(this, "Successfully Payment", Toast.LENGTH_SHORT).show()
             GlobalVar.points = money
             // Push the currentPoints to database as zero
-            val url = GlobalVar.url_ip + "/update_points.php?points="+money+"&name=" + userLoginInfo
+
+            val url = GlobalVar.url_ip + "/AddNewPoints.php?points="+money+"&name=" + userLoginInfo.name
 
             val rq: RequestQueue = Volley.newRequestQueue(this)
 
