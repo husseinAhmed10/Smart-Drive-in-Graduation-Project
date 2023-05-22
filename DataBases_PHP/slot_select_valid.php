@@ -2,7 +2,7 @@
 
 $con = new mysqli("localhost","root","","driveweb");
 
-$st = $con->prepare("SELECT * FROM available WHERE valid = 0 and slotnum=?;");
+$st = $con->prepare("SELECT * FROM available WHERE valid = 0 OR valid = 2 and slotnum=?;");
 $st ->bind_param("s",$_GET["slotnum"]);
 $st->execute();
 $rs=$st->get_result();
