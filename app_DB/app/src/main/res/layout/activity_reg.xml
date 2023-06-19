@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4040"
+    android:background="#0000"
     android:orientation="vertical"
     tools:context=".RegAct">
 
@@ -14,8 +14,8 @@
         android:layout_height="65dp"
         android:layout_margin="15dp"
         android:ems="10"
-        android:hint="Enter your Name"
-        android:text ="noura"
+        android:hint="Username"
+        android:text =""
         android:inputType="textPersonName"
         android:textColor="#000"
         android:textColorHint="#000" />
@@ -26,8 +26,8 @@
         android:layout_height="71dp"
         android:layout_margin="15dp"
         android:ems="10"
-        android:hint="Enter your E-mail"
-        android:text="nour22023@gmail.com"
+        android:hint="E-mail"
+        android:text=""
         android:inputType="textEmailAddress"
         android:textColor="#000"
         android:textColorHint="#000" />
@@ -38,8 +38,8 @@
         android:layout_height="74dp"
         android:layout_margin="15dp"
         android:ems="10"
-        android:hint="Enter your Phone Number"
-        android:text="01112152001"
+        android:hint="Phone Number"
+        android:text=""
         android:inputType="phone"
         android:textColor="#000"
         android:textColorHint="#000" />
@@ -50,8 +50,8 @@
         android:layout_height="68dp"
         android:layout_margin="15dp"
         android:ems="10"
-        android:hint="Enter your password"
-        android:text="12373"
+        android:hint="Password"
+        android:text=""
         android:inputType="textPassword"
         android:textColor="#000"
         android:textColorHint="#000" />
@@ -62,13 +62,11 @@
         android:layout_height="73dp"
         android:layout_margin="15dp"
         android:ems="10"
-        android:hint="Confirm your password"
-        android:text="12373"
+        android:hint="Confirm Password"
+        android:text=""
         android:inputType="textPassword"
         android:textColor="#000"
         android:textColorHint="#000" />
-
-
 
     <TextView
         android:id="@+id/reg_signup_btn_txt"
@@ -76,9 +74,9 @@
         android:textSize="25sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SignUP"
+        android:text="Sign up"
         android:gravity="center"
-        android:background="#000"
+        android:background="#537FE7"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="80dp"

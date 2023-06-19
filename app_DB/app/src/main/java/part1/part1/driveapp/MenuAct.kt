@@ -34,6 +34,8 @@ class MenuAct : AppCompatActivity() {
             Toast.makeText(this,error.message, Toast.LENGTH_LONG).show()
         })
         rq.add(jar)
+
+
     }
 
 }

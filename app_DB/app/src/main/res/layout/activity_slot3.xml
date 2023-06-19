@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#4040"
+    android:background="#0000"
     tools:context=".Slot1Act">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="80dp"
         android:background="#00cc00"
         android:gravity="center"
@@ -104,20 +104,17 @@
         />
     <TextView
         android:id="@+id/Done_3_btn_txt"
-        android:textColor="#000"
+        android:textColor="#ffffff"
         android:textStyle="bold"
         android:textSize="25sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Done"
+        android:text="Next"
         android:gravity="center"
-        android:background="#00cc00"
+        android:background="#537FE7"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:padding="10dp"
         />
-    />
-
-
 </LinearLayout>

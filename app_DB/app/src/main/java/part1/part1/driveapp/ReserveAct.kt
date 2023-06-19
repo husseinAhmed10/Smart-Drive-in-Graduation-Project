@@ -22,6 +22,7 @@ class ReserveAct : AppCompatActivity() {
         val slot4_btn_click = findViewById<TextView>(R.id.slot_4_btn_txt)
 
        // val slot1_db = "ur1"
+        GlobalVar.drivein_choice = 1
 
         slot1_btn_click.setOnClickListener{
 

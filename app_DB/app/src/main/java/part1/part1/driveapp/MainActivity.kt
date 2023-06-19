@@ -1,13 +1,12 @@
 package part1.part1.driveapp
-
 import android.content.Intent
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import com.android.volley.Request
 import com.android.volley.RequestQueue
+import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -16,29 +15,7 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 
-private fun getValueFromQuery(): Int {
-    val url = URL(GlobalVar.url_ip + "/Get_points.php? name=" + userLoginInfo.name)
-    val connection = url.openConnection() as HttpURLConnection
-    connection.requestMethod = "GET"
 
-    try {
-        val inputStream = connection.inputStream
-        val bufferedReader = BufferedReader(InputStreamReader(inputStream))
-        val response = StringBuilder()
-        var line: String?
-        while (bufferedReader.readLine().also { line = it } != null) {
-            response.append(line)
-        }
-        bufferedReader.close()
-        return response.toString().toInt()
-    } catch (e: Exception) {
-        e.printStackTrace()
-        return -1
-    } finally {
-        connection.disconnect()
-        }
-
-}
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,66 +28,80 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
         }
 
-        val name = findViewById<EditText>(R.id.login_Name).text.toString()
-        val pass = findViewById<EditText>(R.id.login_Password).text.toString()
-
         val txt_btn_click_login = findViewById<TextView>(R.id.login_btn_txt)
         txt_btn_click_login.setOnClickListener{
 
-                val url = GlobalVar.url_ip + "/login.php?name=" + name + "&password=" + pass
+            val name = findViewById<EditText>(R.id.login_Name).text.toString()
+            val pass = findViewById<EditText>(R.id.login_Password).text.toString()
 
-                val rq: RequestQueue = Volley.newRequestQueue(this)
+            var url = GlobalVar.url_ip + "/login.php?name=" + name + "&password=" + pass
 
-                val sr= StringRequest(Request.Method.GET,url, { response ->
-                    if(response.equals("0"))
-                        Toast.makeText(this,"Login fail: incorrect password or name", Toast.LENGTH_LONG).show()
-                    else {
-                        userLoginInfo.name = name
+            var rq: RequestQueue = Volley.newRequestQueue(this)
 
-                        //GlobalVar.points =
+            var sr= StringRequest(Request.Method.GET,url, Response.Listener { response ->
+                if(response.equals("0"))
+                    Toast.makeText(this,"Login fail: incorrect password or name", Toast.LENGTH_LONG).show()
+                else {
+                    userLoginInfo.name = name
 
-                    //    val i= Intent(this,HomeAct::class.java)
-                    //    startActivity(i)
-                        //   Toast.makeText(this, "User Created Welcome", Toast.LENGTH_LONG).show()
-                    }
+                    //reserved
+                    var urlp=GlobalVar.url_ip + "/reserved.php?name=" + userLoginInfo.name
+                    var rqp: RequestQueue = Volley.newRequestQueue(this)
+                    var srp= StringRequest(Request.Method.GET,urlp, { response ->
 
-                }, {
-                        error ->
-                    Log.e("Error", error.message.toString())
-                    Toast.makeText(this,error.message,Toast.LENGTH_LONG).show()
-                })
+                        val regex = Regex("\\d+")
+                        val matchResult = regex.find(response)
+                        val number = matchResult?.value?.toInt()
+
+                        if (number != null) {
+                            // Use the integer value here
+                            GlobalVar.reserved= number
+
+                            //   Toast.makeText(this,"L raqm msh b null", Toast.LENGTH_LONG).show()
+                        }
+
+                        if (GlobalVar.reserved == 0)
+                        {
+                            val i= Intent(this,HomeAct::class.java)
+                            startActivity(i)
+                            //      Toast.makeText(this,"Home", Toast.LENGTH_LONG).show()
+                        }
+                        else
+                        {
+                            val i= Intent(this,Points::class.java)
+                            startActivity(i)
+                            //      Toast.makeText(this,"Status", Toast.LENGTH_LONG).show()
+                        }
+
+                        //  Toast.makeText(this,"L reserve asht8l", Toast.LENGTH_LONG).show()
+
+                    }, { error ->
+                        Toast.makeText(this,error.message, Toast.LENGTH_LONG).show()
+                    })
+
+                    rqp.add(srp)
+
+
+                }
+
+            }) { error ->
+                Log.e("Error", error.message.toString())
+                Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
+            }
 
             rq.add(sr)
 
-            ///////
-            //val lv=findViewById<TextView>(R.id.home_cat)
-
-
-            val url_points= GlobalVar.url_ip + "/Get_points.php?name=" + name
-            var list=ArrayList<String>()
-
-            var rq_point: RequestQueue = Volley.newRequestQueue(this)
-//            var jar= JsonArrayRequest(Request.Method.GET,url_points,null, { response ->
-//                list.add(response.getJSONObject(0).getString("points"))
-//
-//                var adp = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
-//                GlobalVar.points  = adp
-//
-//            }
-            /////
-
-
-                // GlobalVar.points = getValueFromQuery()
-            //GlobalVar.points = 1000
-//            Log.d("Points", "Points for $name: $GlobalVar.points")
-
-            val i= Intent(this,HomeAct::class.java)
-            startActivity(i)
+//            val i= Intent(this,reserveScreenStatusActivity2::class.java)
+//            startActivity(i)
 
         }
 
-
-
-
     }
 }
+
+
+
+
+
+
+

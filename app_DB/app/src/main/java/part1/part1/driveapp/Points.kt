@@ -19,7 +19,6 @@ class Points : AppCompatActivity() {
         var rq: RequestQueue = Volley.newRequestQueue(this)
         var sr= StringRequest(Request.Method.GET,url, { response ->
             var total_points=findViewById<TextView>(R.id.totalpts)
-            //total_points.text=response
             val regex = Regex("\\d+")
             val matchResult = regex.find(response)
             val number = matchResult?.value?.toInt()
@@ -27,8 +26,35 @@ class Points : AppCompatActivity() {
             if (number != null) {
                 // Use the integer value here
                 GlobalVar.points= number
-                total_points.text=GlobalVar.points.toString()
+                total_points.text = "Remaining Points: ${GlobalVar.points.toString()}"
+
             }
+
+            if (GlobalVar.point_btn == 1){
+                GlobalVar.point_btn = 0     //only show points
+            }
+
+            else if(GlobalVar.done_reserve == 1 || GlobalVar.drivethru_choice == 1){    //after reserve a slot
+                GlobalVar.done_reserve = 0
+                val i = Intent(this, CheckOutAct::class.java)   //go to check out
+                startActivity(i)
+            }
+            else if(GlobalVar.done_ordering == 1){      //after ordering from menu
+
+
+
+                GlobalVar.done_ordering = 0
+                val i = Intent(this, CheckOutAct::class.java)   //go to check out
+                startActivity(i)
+
+            }
+
+            else if (GlobalVar.reserved == 1 && GlobalVar.point_btn == 0) {     //go status act
+                val i = Intent(this, StatusAct::class.java)
+                startActivity(i)
+            }
+
+
 
 
         }, { error ->
@@ -36,7 +62,6 @@ class Points : AppCompatActivity() {
         })
 
         rq.add(sr)
-        val i= Intent(this,CheckOutAct::class.java)
-        startActivity(i)
+
     }
 }

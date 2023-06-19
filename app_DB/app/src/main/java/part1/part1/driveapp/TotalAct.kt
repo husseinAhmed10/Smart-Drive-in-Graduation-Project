@@ -30,6 +30,7 @@ class TotalAct : AppCompatActivity() {
 
         rq.add(sr)
 
+        GlobalVar.done_ordering = 1
         val i= Intent(this,Points::class.java)
         startActivity(i)
     }

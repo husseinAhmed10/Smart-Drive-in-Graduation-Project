@@ -34,5 +34,15 @@ class DriveInActivity : AppCompatActivity() {
             }
 
         }
+
+        val check_btn_points = findViewById<TextView>(R.id.check_balance_btn_txt)
+        check_btn_points.setOnClickListener {
+
+            GlobalVar.point_btn = 1
+            val i = Intent(this, Points::class.java)
+            startActivity(i)
+
+        }
+
     }
 }

@@ -2,27 +2,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@drawable/app"
+        android:label="Dinin' Out"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/Theme.DriveApp"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Promocode"
+            android:exported="false" />
+        <activity
+            android:name=".reserveScreenStatusActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".BluetoothAct"
+            android:exported="false" />
+        <activity
             android:name=".Points"
-            android:exported="false" />
-        <activity
-            android:name=".Payment1"
-            android:exported="false" />
-        <activity
-            android:name=".payment2"
             android:exported="false" />
         <activity
             android:name=".TotalAct"

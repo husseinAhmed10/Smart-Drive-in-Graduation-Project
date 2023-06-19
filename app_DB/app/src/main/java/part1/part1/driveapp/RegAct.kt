@@ -3,6 +3,7 @@ package part1.part1.driveapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings.Global
 import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
@@ -19,27 +20,29 @@ class RegAct : AppCompatActivity() {
         setContentView(R.layout.activity_reg)
 
         val txtbtnclick = findViewById<TextView>(R.id.reg_signup_btn_txt)
-        val name = findViewById<EditText>(R.id.reg_Name).text.toString()
-        val email = findViewById<EditText>(R.id.reg_email).text.toString()
-        val mobPhone = findViewById<EditText>(R.id.reg_phone).text.toString()
-        val pass = findViewById<EditText>(R.id.reg_Password).text.toString()
-        val confPass = findViewById<EditText>(R.id.reg_confirm_Password).text.toString()
-
-
 
 
         txtbtnclick.setOnClickListener {
+            GlobalVar.promo=3
+            var initialpoints=0
+
+
+            val name = findViewById<EditText>(R.id.reg_Name).text.toString()
+            val email = findViewById<EditText>(R.id.reg_email).text.toString()
+            val mobPhone = findViewById<EditText>(R.id.reg_phone).text.toString()
+            val pass = findViewById<EditText>(R.id.reg_Password).text.toString()
+            val confPass = findViewById<EditText>(R.id.reg_confirm_Password).text.toString()
 
             if(confPass.equals(pass)) {
 
                 val url =
-                    GlobalVar.url_ip + "/add_user.php?name=" + name + "&email=" + email + "&phone=" + mobPhone + "&password=" + pass
+                    GlobalVar.url_ip + "/add_user.php?name=" + name + "&email=" + email + "&phone=" + mobPhone + "&password=" + pass + "&Spot=" + GlobalVar.spot+ "&points=" +initialpoints+"&Reserved=" + GlobalVar.reserved+"&arrived=" +  GlobalVar.arrived +"&promocode=" + GlobalVar.promo + "&credit=" + GlobalVar.creditcard
 
                 val rq:RequestQueue=Volley.newRequestQueue(this)
 
                 val sr=StringRequest(Request.Method.GET,url, { response ->
                     if(response.equals("0"))
-                        Toast.makeText(this,"Already Account with this Name used",Toast.LENGTH_LONG).show()
+                        Toast.makeText(this,"This name is already taken, try another one",Toast.LENGTH_LONG).show()
                     else {
                         userLoginInfo.name = name
                         val i= Intent(this,HomeAct::class.java)
@@ -55,7 +58,7 @@ class RegAct : AppCompatActivity() {
                 rq.add(sr)
             }
             else
-                Toast.makeText(this,"password NOT match",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Passwords don't match",Toast.LENGTH_LONG).show()
         }
 
 

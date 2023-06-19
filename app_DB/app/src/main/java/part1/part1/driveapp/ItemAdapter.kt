@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
+import java.sql.Blob
+
 //import kotlinx.android.synthetic.main.item_row.view.*
 
 
@@ -27,17 +30,23 @@ class ItemAdapter(var context:Context, var list:ArrayList<Item>):RecyclerView.Ad
  }
 
  override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-  (holder as ItemHolder).bind(list[position].name, list[position].price ,list[position].id)
+  (holder as ItemHolder).bind(list[position].name, list[position].price ,list[position].id, list[position].photo)
  }
 
  class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-  fun bind(n: String, p: Int, item_id:Int) {
+  fun bind(n: String, p: Int, item_id:Int, u:String) {
 //              //val rec: RecyclerView=
 
    val namen=itemView.findViewById<TextView>(R.id.item_name)
    namen.text=n
    val pricep =itemView.findViewById<TextView>(R.id.item_price)
    pricep.text=p.toString()
+   val photoph=itemView.findViewById<ImageView>(R.id.item_photo)
+   var web:String="http://192.168.1.5/applweb/items/"+u
+   web=web.replace(" ","%20")
+   with(Picasso.get()) {
+    load("http://192.168.1.5/applweb/items/" + u).into(photoph)
+   }
 
    val butadd=itemView.findViewById<ImageView>(R.id.item_add_photo)
    butadd.setOnClickListener {

@@ -1,15 +1,12 @@
 package part1.part1.driveapp
 
 
-import android.app.DownloadManager.Request
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.RequestQueue
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 //import kotlinx.android.synthetic.main.activity_item.*
@@ -29,7 +26,7 @@ class itemAct : AppCompatActivity() {
 
             for(x in 0..response.length()-1)
                 list.add(Item(response.getJSONObject(x).getInt("id"),response.getJSONObject(x).getString("name"),
-                    response.getJSONObject(x).getInt("price")))
+                    response.getJSONObject(x).getInt("price"), response.getJSONObject(x).getString("photo")))
 
             var adp=ItemAdapter(this,list)
             val itemrv=findViewById<RecyclerView>(R.id.item_rv)
